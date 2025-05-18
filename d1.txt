@@ -1,3 +1,4 @@
 thi is the d1 file 
 123 code my iam working
 iam coreect the bug
+iam making git conflict from lremoote to local
