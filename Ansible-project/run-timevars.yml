@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: install httpd package
+    yum:
+     name: "{{package_name}}"
+     state: latest
+  - name: copy index.html 
+    copy:
+     src: index.html
+     dest: /var/www/html/index.html
+  - name: start httpd server
+    service: 
+     name: "{{package_name}}"
+     state: started
+...

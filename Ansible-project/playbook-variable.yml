@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: true
+  vars:
+   package_name: httpd
+   color: red
+   version: 1.1
+  tasks:
+  - name: install httpd package
+    yum:
+     name: "{{package_name}}"
+     state: latest
+  - name: copy index.html 
+    copy:
+     src: index.html
+     dest: /var/www/html/index.html
+  - name: start httpd server
+    service: 
+     name: "{{package_name}}"
+     state: started
+...
